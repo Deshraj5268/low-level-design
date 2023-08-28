@@ -12,7 +12,7 @@
 	<artifactId>designpattern</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<behaviorName>designpattern</behaviorName>
+	<behaviorName>lowleveldesign</behaviorName>
 	<description>chat application project</description>
 
 	<properties>
