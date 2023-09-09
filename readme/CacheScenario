@@ -1,0 +1,60 @@
+LRU Vs LFU
+
+
+1. same request is repeating then LRU is efficient but LFU is in-efficient because of replacement of element
+but if data in round robin order then LRU  will perform worst because or replacement of data to defeat the case purpose
+but LFU one delete one add
+2.
+
+
+
+
+
+LRU
+Custom Cache approach
+DSA : DoublyLinkedList and HashMap
+DoublyLinkedList , so can remove in O(1)
+head, tail references , so addLast can we done O(1)
+HashMap<key,Node> where
+Node { key,value} , key is redundant but it's helpful while removing least recently entry from hashMap
+public Node removeNode(Node nodeAddress); // first last , middle node deletion
+public Node addLast(key);
+
+
+
+
+FAQ
+upfront question
+1. can we put different value for existing key
+
+Can ask later stage if time permits
+1. Concurrency need to handle
+2. TTL
+
+
+
+LFU (Least Frequently Used)
+
+eg : In real life, we can take the example of typing some texts on your phone.
+
+https://www.enjoyalgorithms.com/blog/least-frequently-used-cache
+
+
+approach
+1. DSA
+KeyValueHashMap [ key-->value]
+keyFrequencyHashMap [ key--> freqCount]
+freqKeysTreeMap [ fre --> DoublyLinkedList<Keys>]
+
+
+
+
+
+
+
+
+
+
+
+
+
