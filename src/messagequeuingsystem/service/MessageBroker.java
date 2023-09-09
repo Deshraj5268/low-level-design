@@ -1,7 +1,8 @@
 package messagequeuingsystem.service;
 
-import org.example.model.Message;
-import org.example.model.MessageQueue;
+
+import messagequeuingsystem.model.Message;
+import messagequeuingsystem.model.MessageQueue;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,11 +6,10 @@ import elevator.service.ElevatorButton;
 import elevator.service.ElevatorDoor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-@Setter
-@Builder
 public class ElevatorCar {
 
     private int elevatorId;
