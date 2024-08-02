@@ -10,6 +10,9 @@ public class LRUCustomCaching implements Caching {
     Map<Integer,ValueNode> keyValueMap;
     LinkedList<ValueNode> list;
     public LRUCustomCaching(int capacity){
+        if(capacity < 1){
+            throw new RuntimeException("size can not be less than 1");
+        }
         this.capacity = capacity; // capacity validation >0 and < 10^5 hardware size
         this.keyValueMap = new HashMap<>();
         this.list = new LinkedList<>();
@@ -18,6 +21,10 @@ public class LRUCustomCaching implements Caching {
     @Override
     public void put(int key, int value) {
         //if key present
+
+        // key and value validation
+
+
         ValueNode valueNode = keyValueMap.get(key);
         if(valueNode != null){
             list.remove(valueNode);

@@ -1,26 +1,28 @@
-package cachingsystem.lruwithttl;
+package cachingsystem.lruwithpriority;
 
 import cachingsystem.GenericCaching;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class PriorityExpiryCaching<K,V> implements GenericCaching<K,V> {
+public class PriorityCaching<K,V> implements GenericCaching<K,V> {
 
-    private Map<K,CacheEntity<V>> map = new HashMap<>();
+    private Map<K, CacheEntity<V>> map = new HashMap<>();
     private int capacity;
     private PriorityQueue<CacheEntity<K>> minHeap;
     private long defaultTTL;
-    private Lock lock = new ReentrantLock();
 
-    public PriorityExpiryCaching(int capacity,long defaultTTL){
+    private int index=0;
+  //  private Lock lock = new ReentrantLock();
+
+    public PriorityCaching(int capacity, long defaultTTL){
         this.capacity = capacity;
         this.defaultTTL = defaultTTL;
         this.map = new HashMap<>(capacity);
-        this.minHeap = new PriorityQueue<>(capacity, (x,y)->Long.compare(x.getExpiryTime(),y.getExpiryTime()));
+        this.minHeap = new PriorityQueue<>(capacity, (x,y)->
+                y.getPriority()== x.getPriority()?Integer.compare(x.getIndex(),y.getIndex())
+        :Long.compare(y.getPriority(),x.getPriority()));
     }
 
     @Override
@@ -29,21 +31,20 @@ public class PriorityExpiryCaching<K,V> implements GenericCaching<K,V> {
     }
 
     @Override
-    public void put(K key, V value, long ttl) {
-        lock.lock();
+    public void put(K key, V value, long priority) {
+       // lock.lock();
        try{
            evictionIfNeeded();
-           long expiryTime = System.currentTimeMillis()+ttl;
-           CacheEntity<V> cacheEntity = new CacheEntity<>(value,expiryTime);
+           CacheEntity<V> cacheEntity = new CacheEntity<>(value,priority);
            map.put(key,cacheEntity);
-           minHeap.offer(new CacheEntity<>(key,expiryTime));
+           minHeap.offer(new CacheEntity<>(key,priority,index++));
        }finally {
-           lock.unlock();
+         //  lock.unlock();
        }
     }
 
     private void evictionIfNeeded() {
-        while (map.size() >= capacity || (minHeap.peek() != null && minHeap.peek().isExpired())){
+        while (map.size() >= capacity || (minHeap.peek() != null)){
             CacheEntity<K> cacheEntity = minHeap.poll();
             if(cacheEntity != null){
                 map.remove(cacheEntity.getKey());
@@ -53,15 +54,15 @@ public class PriorityExpiryCaching<K,V> implements GenericCaching<K,V> {
 
     @Override
     public V get(K key) {
-        lock.lock();
+       // lock.lock();
         try {
             CacheEntity<V> cacheEntity = map.get(key);
-            if(cacheEntity != null && !cacheEntity.isExpired()){
+            if(cacheEntity != null){
                 return cacheEntity.getKey();
             }
             return null;
         }finally {
-            lock.unlock();
+          //  lock.unlock();
         }
     }
 }

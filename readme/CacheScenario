@@ -22,6 +22,21 @@ public Node addLast(key);
 
 
 
+extension :
+Storage type would dynamic
+
+interface Storage { storageType }
+
+RAMStorage implements Storage
+SSDStorage implements Storage
+etc
+StorageFactory {
+}
+
+CacheBuilder if we want some optional with param like storageType , capacity , default cache implementation type etc
+
+
+
 
 FAQ
 upfront question

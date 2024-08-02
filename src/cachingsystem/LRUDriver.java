@@ -2,6 +2,7 @@ package cachingsystem;
 
 import cachingsystem.lru.LRUCaching;
 import cachingsystem.lru.LRUCustomCaching;
+import cachingsystem.lruwithpriority.PriorityCaching;
 import cachingsystem.lruwithttl.PriorityExpiryCaching;
 import javafx.util.Pair;
 
@@ -17,6 +18,22 @@ public class LRUDriver {
        /* testLRUCaching();
         testCUSTOMLRUCaching();
         testCachingWithTTL();*/
+
+        testPriorityCaching();
+
+    }
+
+    private static void testPriorityCaching() {
+
+        GenericCaching<Character,Integer> caching = new PriorityCaching<>(3,500);
+
+        caching.put('a',1,5);
+        caching.put('b',2,6);
+        caching.put('c',3,7);
+        System.out.println(caching.get('c'));
+        caching.put('d',6,5);
+        caching.put('b',4,5);
+        System.out.println(caching.get('b'));
 
     }
 
