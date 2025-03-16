@@ -31,10 +31,10 @@ public class LRUCustomCaching implements Caching {
             if(valueNode.getValue() != value){ // // if we allowed value can be replaceable for existing key
                 valueNode.setValue(value);
             }
-            list.addLast(valueNode);
+            list.addLast(valueNode);// present in LinkedList class
         }else{
             if(keyValueMap.size() == capacity){
-                valueNode = list.removeFirst();
+                valueNode = list.removeFirst();  // present in LinkedList class
                 keyValueMap.remove(valueNode.getKey());
             }
             valueNode = new ValueNode(key,value); // creating node and reference is added in map and in linked-list it will create new node

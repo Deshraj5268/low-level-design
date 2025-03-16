@@ -2,7 +2,7 @@ package cachingsystem.lru;
 
 public class ValueNode {
 
-    private int key; // redundant but while remove old key from hashmap it's required for searcing
+    private int key; // redundant but while remove old key from hashmap it's required for searching
     private int value;
 
 

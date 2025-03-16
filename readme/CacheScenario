@@ -20,6 +20,10 @@ Node { key,value} , key is redundant but it's helpful while removing least recen
 public Node removeNode(Node nodeAddress); // first last , middle node deletion
 public Node addLast(key);
 
+LinkedHashMap approach
+override LinkedHashMap constructor(capacity, LF(.75f), accessOrder(true)) and override removeEldestEntry(Map.Entry<key,Value>) (return capacity < size())
+: by default LinkedHashMap accessOrder is insertion but we can pass true to use access order
+
 
 
 extension :
@@ -29,11 +33,23 @@ interface Storage { storageType }
 
 RAMStorage implements Storage
 SSDStorage implements Storage
+DBStorage implements Storage
 etc
 StorageFactory {
 }
 
 CacheBuilder if we want some optional with param like storageType , capacity , default cache implementation type etc
+
+Scenario
+1. Define interfaces
+generic data type
+Storage and it's type ( RAM , SSD etc) and use Factory pattern
+Eviction policy ( LRU , LFU etc) and we can use strategy pattern as well for algorithm
+2. finally Create cache class  , you can use builder design pattern as well
+Extender requirement like use priority or TTL value provided for optional purpose
+
+3. Handle concurrency ( like in java Lock or ConcurrentHashMap)
+
 
 
 
