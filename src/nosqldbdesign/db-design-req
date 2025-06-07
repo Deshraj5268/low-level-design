@@ -1,0 +1,19 @@
+The objective is to design and implement an in-memory NoSQL-like database, which should support the following set of
+operations/functionality:
+It should be possible to create or delete collections in a database.
+The user should be able to insert a document of JSON type into a collection.
+The user should be able to edit the document. Edit functionality includes.,
+Ability to add a new key, value pair into the document.
+Ability to remove a key, value pair in the document.
+Ability to update the value of a key in the document.
+The user should be able to search the document by providing JSON as the input.
+Search should adhere to data types. For example.,
+{“a”: 1} and {“a”: “1”} should yield different results.
+Search should adhere to search in array types as well. For example., (optional)
+{“a”: 1} can return {“a”: [1]} or {“a”: 1}
+User should be able to add a unique index to the collection.
+The document should support the following datatypes.,
+Integer
+String
+Array
+JSON (nesting is allowed)

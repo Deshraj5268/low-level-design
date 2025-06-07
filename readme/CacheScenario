@@ -46,7 +46,7 @@ generic data type
 Storage and it's type ( RAM , SSD etc) and use Factory pattern
 Eviction policy ( LRU , LFU etc) and we can use strategy pattern as well for algorithm
 2. finally Create cache class  , you can use builder design pattern as well
-Extender requirement like use priority or TTL value provided for optional purpose
+Extended requirement like use priority or TTL value provided for optional purpose
 
 3. Handle concurrency ( like in java Lock or ConcurrentHashMap)
 

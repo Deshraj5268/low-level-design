@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+
+// https://www.enjoyalgorithms.com/blog/least-frequently-used-cache
 public class LFUCaching implements Caching {
 
     Map<Integer,Integer> keyValueHashMap;
