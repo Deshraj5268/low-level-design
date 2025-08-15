@@ -15,11 +15,11 @@ public class LRUDriver {
     public static void main(String[] args) {
 
 
-       /* testLRUCaching();
+        testLRUCaching();
         testCUSTOMLRUCaching();
-        testCachingWithTTL();*/
+        testCachingWithTTL();
 
-        testPriorityCaching();
+       // testPriorityCaching();
 
     }
 
@@ -78,6 +78,7 @@ public class LRUDriver {
     }
 
     public static void testLRUCaching(){
+        System.out.println("testLRUCaching");
         Caching caching = new LRUCaching(4);
         caching.put(1,11);
         caching.put(2,21);

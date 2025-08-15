@@ -1,0 +1,62 @@
+ BattleShip Game - Problem Statement
+You are to design and implement a 2-player BattleShip game, where both players fire missiles at each other's ships until one player loses all their ships.
+
+🧩 Game Setup
+1. Battlefield
+A square grid of size NxN.
+
+The battlefield is divided equally:
+
+Left half (first N/2 columns): belongs to PlayerA
+
+Right half (last N/2 columns): belongs to PlayerB
+
+2. Ships
+Ships are square-shaped blocks of size x size.
+
+Ships are stationary (they do not move).
+
+No two ships can overlap, but they can touch.
+
+Each ship is placed with its top-left corner coordinates.
+
+Same ship ID will have a ship for each player (i.e., added to both sides).
+
+Ship placement is done via:
+
+scss
+Copy
+Edit
+addShip(id, size, xA, yA, xB, yB)
+🎮 Gameplay Rules
+Game is started by startGame() method.
+
+Players take turns (starting with PlayerA) to fire missiles at random coordinates on the opponent’s side.
+
+A missile:
+
+Hits if it lands inside any ship’s area → remove that part.
+
+Misses if it hits empty space.
+
+A ship is destroyed when all its occupied cells are hit.
+
+No duplicate coordinates are allowed (missiles must not be fired at the same coordinate again).
+
+🏁 Game Over
+A player loses if all their ships are destroyed.
+
+The other player is declared the winner.
+
+📥 User Inputs via APIs
+initGame(N)
+→ Initializes a NxN battlefield and sets up both players.
+
+addShip(id, size, xA, yA, xB, yB)
+→ Adds a ship to both PlayerA and PlayerB.
+
+startGame()
+→ Begins the gameplay loop with random missile firing.
+
+viewBattleField() (optional)
+→ Visual representation of battlefield with ships like A-SH1, B-SH2, etc.
