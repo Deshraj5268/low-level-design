@@ -19,7 +19,7 @@ import java.util.Map;
 /*
 * asked in flipkart
 * */
-public class Main {
+public class OfficeAccessSystem {
     public static void main(String[] args) {
         Map<String, Employee> employeeMap = new HashMap<>();
         Map<String, AccessCard> cardMap = new HashMap<>();
