@@ -1,0 +1,7 @@
+Architecture & Flow
+
+Users are registered in-memory.
+Orders are created via OrderService.
+Matching logic is handled by TradingEngine using MatchingStrategy.
+Trades are stored in a synchronized list.
+Matching is triggered manually via executeOrders(symbol).

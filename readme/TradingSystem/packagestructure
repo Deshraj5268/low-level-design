@@ -1,0 +1,31 @@
+com.tradingsystem/
+│
+├── model/                      # Core domain models
+│   ├── User.java
+│   ├── Order.java
+│   ├── OrderType.java
+│   ├── OrderStatus.java
+│   ├── Trade.java
+│   └── TradeType.java
+│
+├── core/                       # Matching engine and order book
+│   ├── OrderBook.java
+│   └── TradingEngine.java
+│
+├── matching/                   # Strategy pattern for order matching
+│   ├── MatchingStrategy.java
+│   └── PriceTimeStrategy.java
+│
+├── service/                    # Business logic
+│   └── OrderService.java
+│
+├── store/                      # In-memory singleton store
+│   └── InMemoryStore.java
+│
+├── validation/            # Central Validation
+│   └── OrderValidator.java
+│
+├── factory/                    # Factory for order creation (optional)
+│   └── OrderFactory.java
+│
+└── Main.java                   # Demo runner to simulate a real trading scenario

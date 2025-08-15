@@ -1,7 +1,7 @@
 package structure :
 
 
-com.accesssystem
+accesssystem
 │
 ├── core         → Models: Employee, AccessCard, Zone, AccessLog, etc.
 ├── service      → Services: AttendanceManager, CardFactory, OrganizationManager
@@ -11,7 +11,7 @@ com.accesssystem
 └── Main         → Simulation entry point
 
 
-com.accesssystem
+accesssystem
 │
 ├── core/
 │   ├── AccessCard.java

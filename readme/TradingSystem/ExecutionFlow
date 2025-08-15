@@ -1,0 +1,16 @@
+// 1. Register dummy users
+// 2. Place a BUY order
+// 3. Modify the order
+// 4. Place a matching SELL order
+// 5. Manually call executeOrders("RELIANCE")
+// 6. Query order status and print trades
+
+
+Original Buy Order: Order{orderId=1, type=BUY, symbol='RELIANCE', quantity=100, price=2500.0, status=ACCEPTED}
+Placed Sell Order: Order{orderId=2, type=SELL, symbol='RELIANCE', quantity=100, price=2499.0, status=ACCEPTED}
+Buy status (pre-execute): ACCEPTED
+Sell status (pre-execute): ACCEPTED
+Buy status (post-execute): EXECUTED
+Sell status (post-execute): EXECUTED
+trade entries ..
+Trade{tradeId=1, buyerOrderId=1, sellerOrderId=2, symbol='RELIANCE', quantity=100, price=2499.0, timestamp=2025-07-27T12:57:29.680}
