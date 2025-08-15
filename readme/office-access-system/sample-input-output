@@ -1,0 +1,59 @@
+Registering employee and card...
+employee is registered and name is :raj and card is :CARD001
+employee is registered and name is :harish and card is :CARD002
+employee is registered and name is :ranjeet and card is :CARD003
+
+
+case :0
+ Running Scenario: Punch IN/OUT Scenario
+ Performing IN and OUT punches for cardId :CARD001
+Access granted: for employee :raj - IN
+Access granted: for employee :raj - OUT
+ Running Scenario: Simulate Fraud Scenario
+ Simulating tailgating (duplicate IN)...
+Access granted: for employee :raj - IN
+ Running Scenario: RestrictedArea Scenario
+ Simulating restricted zone violation...
+Access granted: for employee :raj - ENTRY - ZONE_GENERAL
+ Running Scenario: Resignation Scenario
+ Resigning employee and testing access...
+Employee :raj is resigned successfully ?true with cardId :CARD001
+resigned employee :raj try to punchIn
+message Invalid or deactivated card for card CARD001
+
+case :1
+ Running Scenario: Punch IN/OUT Scenario
+ Performing IN and OUT punches for cardId :CARD002
+Access granted: for employee :harish - IN
+Access granted: for employee :harish - OUT
+ Running Scenario: Simulate Fraud Scenario
+ Simulating tailgating (duplicate IN)...
+Access granted: for employee :harish - IN
+ Running Scenario: RestrictedArea Scenario
+ Simulating restricted zone violation...
+Unauthorized access is detected for : name :harish and cardId is :CARD002 - ENTRY - CAFETERIA
+message Fraud Alert: Unauthorized zone access attempt detected!
+ Running Scenario: Resignation Scenario
+ Resigning employee and testing access...
+Employee :harish is resigned successfully ?true with cardId :CARD002
+resigned employee :harish try to punchIn
+message Invalid or deactivated card for card CARD002
+
+case :2
+ Running Scenario: Punch IN/OUT Scenario
+ Performing IN and OUT punches for cardId :CARD003
+Access granted: for employee :ranjeet - IN
+Access granted: for employee :ranjeet - OUT
+ Running Scenario: Simulate Fraud Scenario
+ Simulating tailgating (duplicate IN)...
+Access granted: for employee :ranjeet - IN
+ Running Scenario: RestrictedArea Scenario
+ Simulating restricted zone violation...
+Unauthorized access is detected for : name :ranjeet and cardId is :CARD003 - ENTRY - ZONE_SERVER
+message Fraud Alert: Unauthorized zone access attempt detected!
+ Running Scenario: Resignation Scenario
+ Resigning employee and testing access...
+Employee :ranjeet is resigned successfully ?true with cardId :CARD003
+resigned employee :ranjeet try to punchIn
+message Invalid or deactivated card for card CARD003
+

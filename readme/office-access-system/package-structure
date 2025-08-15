@@ -1,0 +1,47 @@
+package structure :
+
+
+com.accesssystem
+│
+├── core         → Models: Employee, AccessCard, Zone, AccessLog, etc.
+├── service      → Services: AttendanceManager, CardFactory, OrganizationManager
+├── security     → Roles, RateLimiter, Fraud Detection (tailgating, zone)
+├── policy       → (Pluggable) Policy interface for custom access logic
+├── simulation   → Scenarios like register, punch, resign, fraud tests
+└── Main         → Simulation entry point
+
+
+com.accesssystem
+│
+├── core/
+│   ├── AccessCard.java
+│   ├── AccessLog.java
+│   ├── AccessType.java
+│   ├── Employee.java
+│   └── Zone.java
+│
+├── policy/
+│   └── AccessPolicy.java (interface for complex rules - optional)
+│
+├── security/
+│   ├── Role.java
+│   ├── RoleType.java
+│   ├── RateLimiter.java
+│   └── frauddetector/
+│       ├── FraudDetector.java
+│
+│
+├── service/
+│   ├── AttendanceManager.java
+│   ├── CardFactory.java
+│   └── OrganizationManager.java
+│
+├── simulation/
+│   ├── Simulator.java
+│   ├── RegisterEmployeeScenario.java
+│   ├── PunchInOutScenario.java
+│   ├── ResignationScenario.java
+│   ├── SimulateFraudScenario.java
+│   └── RestrictedAreaScenario.java
+│
+└── Main.java

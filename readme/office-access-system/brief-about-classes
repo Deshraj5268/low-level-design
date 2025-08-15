@@ -1,0 +1,28 @@
+com.accesssystem.core
+Employee: Now contains a Role.
+AccessCard: Linked to an employee; supports active/inactive state.
+Zone: Represents physical access areas with restricted flag.
+AccessType: Enum for ENTRY, EXIT.
+
+com.accesssystem.security
+RoleType: Enum (ADMIN, GENERAL, IT_SUPPORT).
+Role: Holds RoleType and allowed zoneIds, includes canAccess(zoneId).
+RateLimiter (optional): Placeholder for throttling card usage
+FraudDetector -: Detects:
+Tailgating
+Restricted Area Access via !role.canAccess(zoneId)
+
+com.accesssystem.service
+AttendanceManager:
+Handles access (punch) requests.
+Validates:
+Card is active
+Employee is active
+Role is allowed to access the requested zone
+Fraud (tailgating, unauthorized access)
+
+com.accesssystem.policy (Optional)
+Place for defining complex policies like time-based access, escalation rules.
+
+com.accesssystem.util
+DataGenerationUtil : testing data and const data
