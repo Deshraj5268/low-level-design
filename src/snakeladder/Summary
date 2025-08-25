@@ -1,0 +1,11 @@
+| Pattern                               | Where to Use                                                             | Why                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| **Singleton**                         | `Board` class                                                            | Only one board should exist per game.                      |
+| **Factory Method / Abstract Factory** | `SnakeFactory`, `LadderFactory`, or even `BoardFactory`                  | Centralize creation of game objects and board setup.       |
+| **Strategy**                          | `Dice` rolling mechanism (NormalDice, BiasedDice, LoadedDice)            | Easily switch dice behavior without changing core logic.   |
+| **Observer**                          | `GameEventListener` (to notify UI, logs, or analytics when moves happen) | Clean separation of game logic and event handling.         |
+| **Command**                           | For recording moves and enabling undo/redo (history of turns)            | Useful for saving and replaying games.                     |
+| **Template Method**                   | Game flow (start → play turns → check winner → end)                      | Enforce game steps while allowing customization.           |
+| **State**                             | `PlayerState` (NormalTurn, ExtraTurn, SkipTurn)                          | Encapsulates player status changes (power-ups, penalties). |
+| **Builder**                           | Complex board creation with many snakes/ladders or custom rules          | Clean construction of board setup.                         |
+| **Decorator**                         | Special squares (BoostSquare, TrapSquare) wrapping basic squares         | Dynamically add effects to board tiles.                    |
